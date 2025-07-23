@@ -1,6 +1,7 @@
 package com.example.graphql.controller;
 
-import com.example.graphql.model.Customer;
+import com.example.graphql.dto.CustomerDTO;
+import com.example.graphql.model.CustomerDAO;
 import com.example.graphql.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -16,33 +17,34 @@ public class CustomerGraphQLController {
     private CustomerService customerService;
 
     @QueryMapping
-    public List<Customer> listAllCustomers() {
+    public List<CustomerDTO> listAllCustomers() {
         return customerService.getAllCustomers();
     }
 
     @QueryMapping
-    public Customer getCustomerById(@Argument Long custId) {
+    public CustomerDTO getCustomerById(@Argument Long custId) {
         return customerService.getCustomer(custId);
     }
 
     @MutationMapping
-    public Customer addCustomer(@Argument Long custId, @Argument String custFirstName, @Argument String custLastName, @Argument String custEmail) {
-        Customer customer = new Customer();
-        customer.setCustid(custId);
-        customer.setCustFirstName(custFirstName);
-        customer.setCustLastName(custLastName);
-        customer.setCustEmail(custEmail);
-        return customerService.createCustomer(customer);
+    public CustomerDTO addCustomer(@Argument Long custId, @Argument String custFirstName, @Argument String custLastName, @Argument String custEmail) {
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setCustId(custId);
+        customerDTO.setCustFirstName(custFirstName);
+        customerDTO.setCustLastName(custLastName);
+        customerDTO.setCustEmail(custEmail);
+
+        return customerService.createCustomer(customerDTO);
     }
 
     @MutationMapping
-    public Customer updateCustomer(@Argument Long custId, @Argument String custFirstName, @Argument String custLastName, @Argument String custEmail) {
-        Customer customer = new Customer();
-        customer.setCustid(custId);
-        customer.setCustFirstName(custFirstName);
-        customer.setCustLastName(custLastName);
-        customer.setCustEmail(custEmail);
-        return customerService.updateCustomer(customer);
+    public CustomerDTO updateCustomer(@Argument Long custId, @Argument String custFirstName, @Argument String custLastName, @Argument String custEmail) {
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setCustId(custId);
+        customerDTO.setCustFirstName(custFirstName);
+        customerDTO.setCustLastName(custLastName);
+        customerDTO.setCustEmail(custEmail);
+        return customerService.updateCustomer(customerDTO);
     }
 
     @MutationMapping

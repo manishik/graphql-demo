@@ -5,20 +5,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Version;
 
 @Setter
 @Getter
 @Entity
-public class Customer {
+@Table(name = "Customer")
+public class CustomerDAO {
 
-    public Customer() {
+    public CustomerDAO() {
     }
 
-    public Customer(Long custid, String firstName, String middleName, String lastName, String email, Long phoneNumber, Long cellNumber, String address) {
+    /*public CustomerDAO(Long custid, String firstName, String middleName, String lastName,
+                       String email, Long phoneNumber, Long cellNumber, String address) {
         this.custid = custid;
         this.custFirstName = firstName;
         this.custMiddleName = middleName;
@@ -27,13 +28,13 @@ public class Customer {
         this.custPhoneNumber = phoneNumber;
         this.custCellPhoneNumber = cellNumber;
         this.custAddress = address;
-    }
+    }*/
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
-    @SequenceGenerator(name = "customer_seq", sequenceName = "customer_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    //@SequenceGenerator(name = "customer_seq", sequenceName = "customer_seq", allocationSize = 1)
     @Column(name = "custid")
-    private Long custid;
+    private Long custId;
 
     @Column(name = "custfirstname")
     private String custFirstName;
