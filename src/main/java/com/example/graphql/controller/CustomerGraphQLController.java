@@ -34,4 +34,19 @@ public class CustomerGraphQLController {
         customer.setCustEmail(custEmail);
         return customerService.createCustomer(customer);
     }
+
+    @MutationMapping
+    public Customer updateCustomer(@Argument Long custId, @Argument String custFirstName, @Argument String custLastName, @Argument String custEmail) {
+        Customer customer = new Customer();
+        customer.setCustid(custId);
+        customer.setCustFirstName(custFirstName);
+        customer.setCustLastName(custLastName);
+        customer.setCustEmail(custEmail);
+        return customerService.updateCustomer(customer);
+    }
+
+    @MutationMapping
+    public String deleteCustomer(@Argument Long custId) {
+        return customerService.deleteCustomer(custId);
+    }
 }

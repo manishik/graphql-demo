@@ -12,4 +12,6 @@ type Query {
 
 type Mutation {
   addCustomer(custId:ID! custFirstName: String!, custLastName: String!, custEmail: String!): Customer
+  updateCustomer(custId:ID! custFirstName: String!, custLastName: String!, custEmail: String!): Customer
+  deleteCustomer(custId:ID!): String
 }
