@@ -21,14 +21,14 @@ public class CustomerGraphQLController {
     }
 
     @QueryMapping
-    public Customer getCustomerById(@Argument Long id) {
-        return customerService.getCustomer(id);
+    public Customer getCustomerById(@Argument Long custId) {
+        return customerService.getCustomer(custId);
     }
 
     @MutationMapping
     public Customer addCustomer(@Argument Long custId, @Argument String custFirstName, @Argument String custLastName, @Argument String custEmail) {
         Customer customer = new Customer();
-        //customer.setCustid(custId);
+        customer.setCustid(custId);
         customer.setCustFirstName(custFirstName);
         customer.setCustLastName(custLastName);
         customer.setCustEmail(custEmail);
