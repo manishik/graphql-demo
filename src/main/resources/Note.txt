@@ -1,0 +1,27 @@
+Hit the endpoint:
+http://localhost:8080/graphiql
+
+Test in Postman:
+http://localhost:8080/graphql
+
+query Customer {
+  getCustomerById(id: 2) {
+    custFirstName
+    custLastName
+    custEmail
+  }
+}
+
+query Customer {
+  listAllCustomers {custFirstName, custLastName, custEmail
+  }
+}
+
+//Below giving Error, Have to figure out how to send ID.
+mutation Customer {
+  addCustomer(custFirstName:"FSomeone",
+    custLastName:"LSomeone",
+    custEmail:"FLSomeone@someone.com") {
+    id
+  }
+}

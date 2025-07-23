@@ -1,0 +1,15 @@
+type Customer {
+  custId: ID
+  custFirstName: String
+  custLastName: String
+  custEmail: String
+}
+
+type Query {
+  listAllCustomers: [Customer]
+  getCustomerById(custId: ID!): Customer
+}
+
+type Mutation {
+  addCustomer(custId:ID! custFirstName: String!, custLastName: String!, custEmail: String!): Customer
+}
