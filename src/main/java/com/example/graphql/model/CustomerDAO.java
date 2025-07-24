@@ -2,8 +2,6 @@ package com.example.graphql.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -18,43 +16,26 @@ public class CustomerDAO {
     public CustomerDAO() {
     }
 
-    /*public CustomerDAO(Long custid, String firstName, String middleName, String lastName,
-                       String email, Long phoneNumber, Long cellNumber, String address) {
-        this.custid = custid;
-        this.custFirstName = firstName;
-        this.custMiddleName = middleName;
-        this.custLastName = lastName;
-        this.custEmail = email;
-        this.custPhoneNumber = phoneNumber;
-        this.custCellPhoneNumber = cellNumber;
-        this.custAddress = address;
-    }*/
-
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    //@SequenceGenerator(name = "customer_seq", sequenceName = "customer_seq", allocationSize = 1)
-    @Column(name = "custid")
-    private Long custId;
+    @Column(name = "custemail")
+    private String cEmail;
 
     @Column(name = "custfirstname")
-    private String custFirstName;
+    private String cFirstName;
 
     @Column(name = "custmiddlename")
-    private String custMiddleName;
+    private String cMiddleName;
 
     @Column(name = "custlastname")
-    private String custLastName;
-
-    @Column(name = "custemail")
-    private String custEmail;
+    private String cLastName;
 
     @Column(name = "custphonenumber")
-    private Long custPhoneNumber;
+    private Long cPhoneNumber;
 
     @Column(name = "custcellnumber")
-    private Long custCellPhoneNumber;
+    private Long cCellPhoneNumber;
 
     @Column(name = "custaddress")
-    private String custAddress;
+    private String cAddress;
 
 }

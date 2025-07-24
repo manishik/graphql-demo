@@ -1,17 +1,39 @@
 type Customer {
-  custId: ID
-  custFirstName: String
-  custLastName: String
-  custEmail: String
+  cEmail: ID
+  cFirstName: String
+  cMiddleName: String
+  cLastName: String
+  cPhoneNumber: Int
+  cCellPhoneNumber: Int
+  cAddress: Address
+}
+
+type Address {
+  doorNo: ID
+  street1: String
+  street2: String
+  area: String
+  zipCode: Int
+  state: String
+  country: String
+  cEmail: ID
 }
 
 type Query {
   listAllCustomers: [Customer]
-  getCustomerById(custId: ID!): Customer
+  getCustomerByEmailId(cEmail: ID!): Customer
 }
 
 type Mutation {
-  addCustomer(custId:ID! custFirstName: String!, custLastName: String!, custEmail: String!): Customer
-  updateCustomer(custId:ID! custFirstName: String!, custLastName: String!, custEmail: String!): Customer
-  deleteCustomer(custId:ID!): String
+  addCustomer(cEmail: ID!, cFirstName: String!, cMiddleName: String, cLastName: String!,
+    cPhoneNumber: Int, cCellPhoneNumber: Int): Customer
+  updateCustomerByEmail(cEmail: ID!, cFirstName: String, cMiddleName: String,
+    cLastName: String, cPhoneNumber: Int, cCellPhoneNumber: Int): Customer
+  deleteCustomerByEmail(cEmail: ID!): String
+
+  addAddress(cEmail: ID!, cFirstName: String!, cMiddleName: String, cLastName: String!,
+    cPhoneNumber: Int, cCellPhoneNumber: Int): Customer
+  updateAddress(cFirstName: String, cMiddleName: String,
+    cLastName: String, cPhoneNumber: Int, cCellPhoneNumber: Int): Customer
+  deleteAddress(cEmail: ID!): String
 }

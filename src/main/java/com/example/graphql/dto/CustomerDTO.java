@@ -5,9 +5,12 @@ import lombok.Data;
 @Data
 public class CustomerDTO {
 
-    private Long custId;
-    private String custFirstName;
-    private String custLastName;
-    private String custEmail;
+    private String cEmail;
+    private String cFirstName;
+    private String cMiddleName;
+    private String cLastName;
+    private String cPhoneNumber;
+    private String cCellPhoneNumber;
+    private AddressDTO cAddress;
 
 }
