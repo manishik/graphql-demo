@@ -1,39 +1,44 @@
 type Customer {
-  cEmail: ID
-  cFirstName: String
-  cMiddleName: String
-  cLastName: String
-  cPhoneNumber: Int
-  cCellPhoneNumber: Int
-  cAddress: Address
+    cEmail: ID
+    cFirstName: String
+    cMiddleName: String
+    cLastName: String
+    cPhoneNumber: String
+    cCellPhoneNumber: String
+    cAddress: Address
 }
 
 type Address {
-  doorNo: ID
-  street1: String
-  street2: String
-  area: String
-  zipCode: Int
-  state: String
-  country: String
-  cEmail: ID
+    doorNo: ID
+    street1: String
+    street2: String
+    area: String
+    zipCode: Int
+    state: String
+    country: String
+    addressType: String
+    phoneNumber: String
+    email: String
+    cEmail: ID
 }
 
 type Query {
-  listAllCustomers: [Customer]
-  getCustomerByEmailId(cEmail: ID!): Customer
+    listAllCustomers: [Customer]
+    getCustomerByEmailId(cEmail: ID!): Customer
 }
 
 type Mutation {
-  addCustomer(cEmail: ID!, cFirstName: String!, cMiddleName: String, cLastName: String!,
-    cPhoneNumber: Int, cCellPhoneNumber: Int): Customer
-  updateCustomerByEmail(cEmail: ID!, cFirstName: String, cMiddleName: String,
-    cLastName: String, cPhoneNumber: Int, cCellPhoneNumber: Int): Customer
-  deleteCustomerByEmail(cEmail: ID!): String
+    addCustomer(cEmail: ID!, cFirstName: String!, cMiddleName: String, cLastName: String!,
+        cPhoneNumber: Int, cCellPhoneNumber: Int): Customer
+    updateCustomerByEmail(cEmail: ID!, cFirstName: String, cMiddleName: String,
+        cLastName: String, cPhoneNumber: Int, cCellPhoneNumber: Int): Customer
+    deleteCustomerByEmail(cEmail: ID!): String
 
-  addAddress(cEmail: ID!, cFirstName: String!, cMiddleName: String, cLastName: String!,
-    cPhoneNumber: Int, cCellPhoneNumber: Int): Customer
-  updateAddress(cFirstName: String, cMiddleName: String,
-    cLastName: String, cPhoneNumber: Int, cCellPhoneNumber: Int): Customer
-  deleteAddress(cEmail: ID!): String
+    addAddressByEmail(cEmail: ID!, doorNo: Int, street1: String, street2: String!,
+        area: String, zipCode: Int, state: String, country: String, addressType: String
+        phoneNumber: String, email: String): Address
+    updateAddressByEmail(cEmail: ID!, doorNo: Int, street1: String, street2: String!,
+        area: String, zipCode: Int, state: String, country: String, addressType: String
+        phoneNumber: String, email: String): Address
+    deleteAddressByEmail(cEmail: ID!): String
 }

@@ -3,18 +3,14 @@ package com.example.graphql.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
+@Data
 @Entity
 @Table(name = "Customer")
 public class CustomerDAO {
-
-    public CustomerDAO() {
-    }
 
     @Id
     @Column(name = "custemail")
@@ -30,10 +26,10 @@ public class CustomerDAO {
     private String cLastName;
 
     @Column(name = "custphonenumber")
-    private Long cPhoneNumber;
+    private String cPhoneNumber;
 
     @Column(name = "custcellnumber")
-    private Long cCellPhoneNumber;
+    private String cCellPhoneNumber;
 
     @Column(name = "custaddress")
     private String cAddress;

@@ -11,6 +11,6 @@ public class CustomerDTO {
     private String cLastName;
     private String cPhoneNumber;
     private String cCellPhoneNumber;
-    private AddressDTO cAddress;
+    private CustomerAddressDTO cAddress;
 
 }
